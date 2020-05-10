@@ -32,6 +32,7 @@ const ContenedorFrase = styled.div`
 
 const Frase = ({ frase }) => {
   const { quote, author } = frase;
+
   return (
     <ContenedorFrase>
       <h2>{quote}</h2>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import Frase from './components/Frase';
 
@@ -13,8 +13,8 @@ const Boton = styled.button`
   background: -webkit-linear-gradient(
     top left,
     #007d35 0%,
-    #007d35 40%,
-    #0f574e 100%
+    #007d35 5%,
+    #0b3a42 100%
   );
   background-size: 300px;
   font-family: Arial, Helvetica, sans-serif;
@@ -25,8 +25,9 @@ const Boton = styled.button`
   border: 2px solid teal;
   border-radius: 10px;
   box-shadow: 3px 12px 15px 3px #000;
+  transition: background-size 1s ease;
   &:hover {
-    /* background-color: black; */
+    background-size: 400px;
     cursor: pointer;
   }
 `;
@@ -44,6 +45,12 @@ function App() {
     guardarFrase(frase[0]);
   };
 
+  // cargar na frase por defecto
+  useEffect(() => {
+    consultarApi();
+  }, []);
+
+  
   return (
     <Contenedor>
       <Frase frase={frase} />
